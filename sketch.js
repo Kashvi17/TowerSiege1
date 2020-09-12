@@ -28,7 +28,7 @@ function setup() {
   createCanvas(800,400);
   engine = Engine.create();
   world = engine.world;
-  createSprite(400, 200, 50, 50);
+  //createSprite(400, 200, 50, 50);
   ground = new Ground(400,260,250,10);
   //stand = new Ground(400,230,200,20);
 
@@ -70,7 +70,7 @@ function draw() {
 
 
 function mouseDragged(){
-    Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+    Matter.Body.setPosition(this.polygon, {x: mouseX , y: mouseY});
 }
 
 
