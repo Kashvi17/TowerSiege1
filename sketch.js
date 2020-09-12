@@ -7,16 +7,30 @@ Matter.Engine;
 Matter.World;
 */
 var ground;
-var stand;
-var box1, box2, box3, box4, box5, box6, box7, box8, box9; 
-var polygon;
+//var stand;
+var box1, box2, box3, box4, box5, box6, box7, box8, box9, box1Image, box2Image, box3Image, box4Image, box5Image, box6Image, box7Image, box8Image, box9Image; 
+var polygon, polygonImage;
 
+function preload() {
+  polygonImage = loadImage("Image/hexagon.png");
+  box1Image = loadImage("Image/orange_rectangle.png");
+  box2Image = loadImage("Image/orange_rectangle.png");
+  box3Image = loadImage("Image/orange_rectangle.png");
+  box4Image = loadImage("Image/orange_rectangle.png");
+  box5Image = loadImage("Image/orange_rectangle.png");
+  box6Image = loadImage("Image/purple_rectangle.png");
+  box7Image = loadImage("Image/purple_rectangle.png");
+  box8Image = loadImage("Image/purple_rectangle.png");
+  box9Image = loadImage("Image/green_rectangle.png");
+}
 
 function setup() {
   createCanvas(800,400);
+  engine = Engine.create();
+  world = engine.world;
   createSprite(400, 200, 50, 50);
-  ground = new Ground(800,380,800,30);
-  stand = new Ground(400,230,200,20);
+  ground = new Ground(400,260,250,10);
+  //stand = new Ground(400,230,200,20);
 
   box1 = new Box(330,235,30,40);
   box2 = new Box(360,235,30,40);
@@ -37,14 +51,20 @@ function setup() {
 
 
 function draw() {
-  background(255,255,255);  
-    box1.display();
-    box2.display();
-    box3.display();
-    box4.display();
-    box5.display();
+  background("pink");  
+    imageMode(CENTER);
+    image(polygonImage, polygon.position.x, polygon.position.y, 80, 80);
+    image(box1Image, 330,235,30,40);
+    image(box2Image, 365,235,30,40);
+    image(box3Image, 400,235,30,40);
+    image(box4Image, 435,235,30,40);
+    image(box5Image, 470,235,30,40);
+    image(box6Image, 365,190,30,40);
+    image(box7Image, 400,190,30,40);
+    image(box8Image, 435,190,30,40);
+    image(box9Image, 400,145,30,40); 
     ground.display();
-    slingshot.display();    
+    slingShot.display();    
   drawSprites();
 }
 
@@ -55,5 +75,5 @@ function mouseDragged(){
 
 
 function mouseReleased(){
-    slingshot.fly();
+    slingShot.fly();
 }
